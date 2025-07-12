@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
         SendMessage(6, 2f);
     }
 
+    // Pass message 
     public void SendMessage(int index, float delay = 0)
     {
         DOVirtual.DelayedCall(delay, () =>

@@ -4,23 +4,28 @@ using DG.Tweening;
 
 public class ConicalFlask : MonoBehaviour
 {
+    /// <summary>
+    /// Conical flask activity maintain here
+    /// </summary>
     public TubeType type;
     private MeshRenderer meshRenderer;
     private BoxCollider coll;
     private Color currentColor;
     private Coroutine colorLerpCoroutine;
+
     void Start()
     {
         coll = GetComponent<BoxCollider>();
         meshRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
     }
-
+    // Collider control when required
     public void IsCollider(bool isEnabled)
     {
         if (coll != null)
             coll.enabled = isEnabled;
     }
 
+    // Assign color accordingly
     public void SetColor(Color targetColor, float duration = 1f)
     {
         if (meshRenderer != null)
@@ -33,6 +38,7 @@ public class ConicalFlask : MonoBehaviour
         }
     }
 
+    // When solutions are mixing
     private void MixAnimate()
     {
         Vector3 currentRotation = transform.localEulerAngles;
@@ -46,6 +52,7 @@ public class ConicalFlask : MonoBehaviour
             });
     }
 
+    // Slowly color change
     private IEnumerator LerpColorCoroutine(Color targetColor, float duration)
     {
         Material[] materials = meshRenderer.materials;

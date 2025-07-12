@@ -3,6 +3,9 @@ using DG.Tweening;
 using System.Collections;
 public class TestTube : MonoBehaviour
 {
+    /// <summary>
+    /// Testtube activity handle
+    /// </summary>
     private CapsuleCollider coll;
     private Vector3 defPos, offSet, mousePos;
     private MeshRenderer meshRenderer;
@@ -28,6 +31,9 @@ public class TestTube : MonoBehaviour
             coll.enabled = isEnabled;
     }
 
+    /// <summary>
+    /// Drag testtube
+    /// </summary>
     void OnMouseDown()
     {
         IsCollider(false);
@@ -73,11 +79,18 @@ public class TestTube : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Back to deafult position
+    /// </summary>
     private void BackToDefault()
     {
         transform.DOLocalMove(defPos, 0.5f).OnComplete(() => { IsCollider(true); });
     }
 
+    /// <summary>
+    /// Get material to send color
+    /// </summary>
+    /// <returns></returns>
     private Color GetColorFromMaterial()
     {
         string colorProperty = null;
@@ -112,6 +125,13 @@ public class TestTube : MonoBehaviour
         BackToDefault();
     }
 
+
+    /// <summary>
+    /// Fill Color slowly
+    /// </summary>
+    /// <param name="targetColor"></param>
+    /// <param name="duration"></param>
+    /// <returns></returns>
     private IEnumerator LerpColorCoroutine(Color targetColor, float duration)
     {
         Material[] materials = meshRenderer.materials;
@@ -166,6 +186,9 @@ public class TestTube : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When back to default then slowly fill color to show another solution
+    /// </summary>
     private void AutoColorFill()
     {
         // It is use to show test-tube fill another solutions
