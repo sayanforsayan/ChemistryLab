@@ -1,5 +1,7 @@
 # ChemistryLab
 
+# Gameplay Video
+https://drive.google.com/uc?export=download&id=14xc9cJ6tV-LblJT_YRPQkUezHsvVJxh6
 # Features
 3D Chemistry Lab Scene with Table, Conical Flasks, Test Tube
 
